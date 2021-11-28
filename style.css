@@ -1,0 +1,111 @@
+body{
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 8px;
+}
+.mycontainer{
+  margin: 40px 5% auto 5%;
+  height:600px;
+  overflow-y:auto;
+}
+
+.mycol{
+  flex: 0 0 auto;
+  width: 16.66666667% !important;
+}
+p{
+  padding-top:10px;
+  font-size: x-small;
+}
+a:hover{
+  text-decoration: underline;
+}
+.myfilter{
+  font-size: 14px;
+  width: 100%;
+  margin-top:20px;
+  padding:0 5%;
+}
+.form1{
+  display: inline-block;
+  white-space: nowrap;
+}
+.form2{
+  margin-left: 130px;
+  display:inline-block;
+  white-space: nowrap;
+}
+.form3{
+  margin-left: 130px;
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.mylabel{
+  padding-right: 5px;
+  /* font-size: 13px; */
+  font-weight: 700;
+}
+.sortlabel{
+  /* margin-left:100px; */
+  /* font-size: 13px; */
+  font-weight: 700;
+}
+.myselect{
+  /* font-size: 13px; */
+  height: 34px;
+  /* width: 25%; */
+  padding-left: 10px;
+  width: auto;
+}
+.button-show{
+  /* font-size: 13px; */
+  margin-left: 2px;
+  padding-right: 8px;
+  padding-left: 8px;
+  height: 34px;
+  color:white;
+  background-color:teal;
+  border-radius: 10%;
+  border:1px solid teal;
+}
+.button-show:hover{
+  border:2px solid #a3e4d7;
+}
+form{
+  display: inline-block;
+  white-space: nowrap;
+}
+.detail{
+  margin:20px 7% auto 7%;
+  padding-top: 20px;
+  /* text-align: center; */
+}
+@media(max-width:1200px){
+  .mycol{
+    width:20% !important;
+  }
+}
+@media(max-width:990px){
+  .mycol{
+    width:33.333% !important;
+  }
+}
+@media(max-width:765px){
+  .mycol{
+    width:50% !important;
+  }
+}
+@media (max-width:1364px) {
+  .form3{
+    display: block;
+    margin-left: 0;
+    margin-top: 10px;
+  }
+}
+@media (max-width:850px) {
+  .form2{
+    display: block;
+    margin-top: 10px;
+    margin-left: 0;
+  }
+}
