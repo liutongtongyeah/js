@@ -160,114 +160,229 @@
       }
       function show(data, category, pricevalue, url) {
         if(data.productMedia.length > 0) {
-          if(category === '0' && pricevalue === '0') {
-            let urlParams = './pic.html?prodId=' + data.prodId + '&prodTitle=' + data.title
-            imgurl = url + data.productMedia[0].url
-            document.getElementById('pic').innerHTML += 
-            `<div class="mycol">
-              <a href="${urlParams}" style="color:grey;">
-              <img src="${imgurl}" style="width:100%; height:250px; display:block">
-              <p style="width:90%; height:20px">${data.title}</p>
-              <p>$${data.price}</p>
-              </a>
-            </div>`
-          }
-          if(category !== '0' && pricevalue === '0' && data.categoryId == category) {
-            let urlParams = './pic.html?prodId=' + data.prodId + '&prodTitle=' + data.title
-            imgurl = url + data.productMedia[0].url
-            document.getElementById('pic').innerHTML += 
-            `<div class="mycol">
-              <a href="${urlParams}" style="color:grey;">
-              <img src="${imgurl}" style="width:100%; height:250px; display:block">
-              <p style="width:90%; height:20px">${data.title}</p>
-              <p>$${data.price}</p>
-              </a>
-            </div>`
-          }
-          if(pricevalue === '1' && data.price < 50) {
-            if(category === '0' || (category != '0' && data.categoryId == category)) {
-              let urlParams = './pic.html?prodId=' + data.prodId + '&prodTitle=' + data.title
-              imgurl = url + data.productMedia[0].url
-              document.getElementById('pic').innerHTML += 
-              `<div class="mycol">
-                <a href="${urlParams}" style="color:grey;">
-                <img src="${imgurl}" style="width:100%; height:250px; display:block">
-                <p style="width:90%; height:20px">${data.title}</p>
-                <p>$${data.price}</p>
-                </a>
-              </div>`
-            }
-          }
-
-          if(pricevalue === '2' && 50 <= data.price && data.price < 100){
-            if(category === '0' || (category != '0' && data.categoryId == category)) {
-              let urlParams = './pic.html?prodId=' + data.prodId + '&prodTitle=' + data.title
-              imgurl = url + data.productMedia[0].url
-              document.getElementById('pic').innerHTML += 
-              `<div class="mycol">
-                <a href="${urlParams}" style="color:grey;">
-                <img src="${imgurl}" style="width:100%; height:250px; display:block">
-                <p style="width:90%; height:20px">${data.title}</p>
-                <p>$${data.price}</p>
-                </a>
-              </div>`
-            }
-          }
-          if(pricevalue === '3' && 100 <= data.price && data.price < 200){
-            if(category === '0' || (category != '0' && data.categoryId == category)) {
-              let urlParams = './pic.html?prodId=' + data.prodId + '&prodTitle=' + data.title
-              imgurl = url + data.productMedia[0].url
-              document.getElementById('pic').innerHTML += 
-              `<div class="mycol">
-                <a href="${urlParams}" style="color:grey;">
-                <img src="${imgurl}" style="width:100%; height:250px; display:block">
-                <p style="width:90%; height:20px">${data.title}</p>
-                <p>$${data.price}</p>
-                </a>
-              </div>`
-            }
-          }
-          if(pricevalue === '4' && 200 <= data.price && data.price < 300){
-            if(category === '0' || (category != '0' && data.categoryId == category)) {
-              let urlParams = './pic.html?prodId=' + data.prodId + '&prodTitle=' + data.title
-              imgurl = url + data.productMedia[0].url
-              document.getElementById('pic').innerHTML += 
-              `<div class="mycol">
-                <a href="${urlParams}" style="color:grey;">
-                <img src="${imgurl}" style="width:100%; height:250px; display:block">
-                <p style="width:90%; height:20px">${data.title}</p>
-                <p>$${data.price}</p>
-                </a>
-              </div>`
-            }
-          }
-          if(pricevalue === '5' && 300 <= data.price && data.price < 400){
-            if(category === '0' || (category != '0' && data.categoryId == category)) {
-              let urlParams = './pic.html?prodId=' + data.prodId + '&prodTitle=' + data.title
-              imgurl = url + data.productMedia[0].url
-              document.getElementById('pic').innerHTML += 
-              `<div class="mycol">
-                <a href="${urlParams}" style="color:grey;">
-                <img src="${imgurl}" style="width:100%; height:250px; display:block">
-                <p style="width:90%; height:20px">${data.title}</p>
-                <p>$${data.price}</p>
-                </a>
-              </div>`
-            }
-          }
-          if(pricevalue === '6' && 400 <= data.price){
-            if(category === '0' || (category != '0' && data.categoryId == category)) {
-              let urlParams = './pic.html?prodId=' + data.prodId + '&prodTitle=' + data.title
-              imgurl = url + data.productMedia[0].url
-              document.getElementById('pic').innerHTML += 
-              `<div class="mycol">
-                <a href="${urlParams}" style="color:grey;">
-                <img src="${imgurl}" style="width:100%; height:250px; display:block">
-                <p style="width:90%; height:20px">${data.title}</p>
-                <p>$${data.price}</p>
-                </a>
-              </div>`
-            }
+          switch(pricevalue) {
+            case '0':
+              switch(category) {
+                case '0':
+                  urlParams = './pic.html?prodId=' + data.prodId + '&prodTitle=' + data.title
+                  imgurl = url + data.productMedia[0].url
+                  document.getElementById('pic').innerHTML += 
+                  `<div class="mycol">
+                    <a href="${urlParams}" style="color:grey;">
+                    <img src="${imgurl}" style="width:100%; height:250px; display:block">
+                    <p style="width:90%; height:20px">${data.title}</p>
+                    <p>$${data.price}</p>
+                    </a>
+                  </div>`
+                  break
+                default:
+                  if(data.categoryId == category) {
+                    urlParams = './pic.html?prodId=' + data.prodId + '&prodTitle=' + data.title
+                    imgurl = url + data.productMedia[0].url
+                    document.getElementById('pic').innerHTML += 
+                    `<div class="mycol">
+                      <a href="${urlParams}" style="color:grey;">
+                      <img src="${imgurl}" style="width:100%; height:250px; display:block">
+                      <p style="width:90%; height:20px">${data.title}</p>
+                      <p>$${data.price}</p>
+                      </a>
+                    </div>`
+                  }
+                  break
+              }
+              break
+            case '1':
+              switch(category) {
+                case '0':
+                  if(data.price < 50) {
+                    urlParams = './pic.html?prodId=' + data.prodId + '&prodTitle=' + data.title
+                    imgurl = url + data.productMedia[0].url
+                    document.getElementById('pic').innerHTML += 
+                    `<div class="mycol">
+                      <a href="${urlParams}" style="color:grey;">
+                      <img src="${imgurl}" style="width:100%; height:250px; display:block">
+                      <p style="width:90%; height:20px">${data.title}</p>
+                      <p>$${data.price}</p>
+                      </a>
+                    </div>`
+                  }
+                  break
+                default:
+                  if(data.categoryId == category && data.price < 50) {
+                    urlParams = './pic.html?prodId=' + data.prodId + '&prodTitle=' + data.title
+                    imgurl = url + data.productMedia[0].url
+                    document.getElementById('pic').innerHTML += 
+                    `<div class="mycol">
+                      <a href="${urlParams}" style="color:grey;">
+                      <img src="${imgurl}" style="width:100%; height:250px; display:block">
+                      <p style="width:90%; height:20px">${data.title}</p>
+                      <p>$${data.price}</p>
+                      </a>
+                    </div>`
+                  }
+                  break
+              }
+              break
+            case '2':
+              switch(category) {
+                case '0':
+                  if(50 <= data.price && data.price < 100) {
+                    urlParams = './pic.html?prodId=' + data.prodId + '&prodTitle=' + data.title
+                    imgurl = url + data.productMedia[0].url
+                    document.getElementById('pic').innerHTML += 
+                    `<div class="mycol">
+                      <a href="${urlParams}" style="color:grey;">
+                      <img src="${imgurl}" style="width:100%; height:250px; display:block">
+                      <p style="width:90%; height:20px">${data.title}</p>
+                      <p>$${data.price}</p>
+                      </a>
+                    </div>`
+                  }
+                  break
+                default:
+                  if(data.categoryId == category && 50 <= data.price && data.price < 100) {
+                    urlParams = './pic.html?prodId=' + data.prodId + '&prodTitle=' + data.title
+                    imgurl = url + data.productMedia[0].url
+                    document.getElementById('pic').innerHTML += 
+                    `<div class="mycol">
+                      <a href="${urlParams}" style="color:grey;">
+                      <img src="${imgurl}" style="width:100%; height:250px; display:block">
+                      <p style="width:90%; height:20px">${data.title}</p>
+                      <p>$${data.price}</p>
+                      </a>
+                    </div>`
+                  }
+                  break
+              }
+              break
+            case '3':
+              switch(category) {
+                case '0':
+                  if(100 <= data.price && data.price < 200) {
+                    urlParams = './pic.html?prodId=' + data.prodId + '&prodTitle=' + data.title
+                    imgurl = url + data.productMedia[0].url
+                    document.getElementById('pic').innerHTML += 
+                    `<div class="mycol">
+                      <a href="${urlParams}" style="color:grey;">
+                      <img src="${imgurl}" style="width:100%; height:250px; display:block">
+                      <p style="width:90%; height:20px">${data.title}</p>
+                      <p>$${data.price}</p>
+                      </a>
+                    </div>`
+                  }
+                  break
+                default:
+                  if(data.categoryId == category && 100 <= data.price && data.price < 200) {
+                    urlParams = './pic.html?prodId=' + data.prodId + '&prodTitle=' + data.title
+                    imgurl = url + data.productMedia[0].url
+                    document.getElementById('pic').innerHTML += 
+                    `<div class="mycol">
+                      <a href="${urlParams}" style="color:grey;">
+                      <img src="${imgurl}" style="width:100%; height:250px; display:block">
+                      <p style="width:90%; height:20px">${data.title}</p>
+                      <p>$${data.price}</p>
+                      </a>
+                    </div>`
+                  }
+                  break
+              }
+              break
+            case '4':
+              switch(category) {
+                case '0':
+                  if(200 <= data.price && data.price < 300) {
+                    urlParams = './pic.html?prodId=' + data.prodId + '&prodTitle=' + data.title
+                    imgurl = url + data.productMedia[0].url
+                    document.getElementById('pic').innerHTML += 
+                    `<div class="mycol">
+                      <a href="${urlParams}" style="color:grey;">
+                      <img src="${imgurl}" style="width:100%; height:250px; display:block">
+                      <p style="width:90%; height:20px">${data.title}</p>
+                      <p>$${data.price}</p>
+                      </a>
+                    </div>`
+                  }
+                  break
+                default:
+                  if(data.categoryId == category && 200 <= data.price && data.price < 300) {
+                    urlParams = './pic.html?prodId=' + data.prodId + '&prodTitle=' + data.title
+                    imgurl = url + data.productMedia[0].url
+                    document.getElementById('pic').innerHTML += 
+                    `<div class="mycol">
+                      <a href="${urlParams}" style="color:grey;">
+                      <img src="${imgurl}" style="width:100%; height:250px; display:block">
+                      <p style="width:90%; height:20px">${data.title}</p>
+                      <p>$${data.price}</p>
+                      </a>
+                    </div>`
+                  }
+                  break
+              }
+              break
+            case '5':
+              switch(category) {
+                case '0':
+                  if(300 <= data.price && data.price < 400) {
+                    urlParams = './pic.html?prodId=' + data.prodId + '&prodTitle=' + data.title
+                    imgurl = url + data.productMedia[0].url
+                    document.getElementById('pic').innerHTML += 
+                    `<div class="mycol">
+                      <a href="${urlParams}" style="color:grey;">
+                      <img src="${imgurl}" style="width:100%; height:250px; display:block">
+                      <p style="width:90%; height:20px">${data.title}</p>
+                      <p>$${data.price}</p>
+                      </a>
+                    </div>`
+                  }
+                  break
+                default:
+                  if(data.categoryId == category && 300 <= data.price && data.price < 400) {
+                    urlParams = './pic.html?prodId=' + data.prodId + '&prodTitle=' + data.title
+                    imgurl = url + data.productMedia[0].url
+                    document.getElementById('pic').innerHTML += 
+                    `<div class="mycol">
+                      <a href="${urlParams}" style="color:grey;">
+                      <img src="${imgurl}" style="width:100%; height:250px; display:block">
+                      <p style="width:90%; height:20px">${data.title}</p>
+                      <p>$${data.price}</p>
+                      </a>
+                    </div>`
+                  }
+                  break
+              }
+              break
+            case '6':
+              switch(category) {
+                case '0':
+                  if(400 <= data.price) {
+                    urlParams = './pic.html?prodId=' + data.prodId + '&prodTitle=' + data.title
+                    imgurl = url + data.productMedia[0].url
+                    document.getElementById('pic').innerHTML += 
+                    `<div class="mycol">
+                      <a href="${urlParams}" style="color:grey;">
+                      <img src="${imgurl}" style="width:100%; height:250px; display:block">
+                      <p style="width:90%; height:20px">${data.title}</p>
+                      <p>$${data.price}</p>
+                      </a>
+                    </div>`
+                  }
+                  break
+                default:
+                  if(data.categoryId == category && 400 <= data.price) {
+                    urlParams = './pic.html?prodId=' + data.prodId + '&prodTitle=' + data.title
+                    imgurl = url + data.productMedia[0].url
+                    document.getElementById('pic').innerHTML += 
+                    `<div class="mycol">
+                      <a href="${urlParams}" style="color:grey;">
+                      <img src="${imgurl}" style="width:100%; height:250px; display:block">
+                      <p style="width:90%; height:20px">${data.title}</p>
+                      <p>$${data.price}</p>
+                      </a>
+                    </div>`
+                  }
+                  break
+              }
+              break
           }
         }
       }
